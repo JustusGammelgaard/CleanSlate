@@ -34,13 +34,14 @@ ENV LD_LIBRARY_PATH /darknet
 
 ## Download and compile YOLO3-4-Py ##
 WORKDIR /
-RUN git clone https://github.com/JustusGammelgaard/YOLO.git
+RUN git clone https://github.com/JustusGammelgaard/CleanSlate.git
+#RUN git clone https://github.com/JustusGammelgaard/YOLO.git
 WORKDIR /YOLO
 RUN pip3 install pkgconfig
 RUN pip3 install cython
 RUN python3 setup.py build_ext --inplace
 
 ## Run test ##
-##RUN sh download_models.sh
+RUN sh download_models.sh
 ##ADD ./docker_demo.py /YOLO/docker_demo.py
 CMD ["python3", "docker_demo.py"]
